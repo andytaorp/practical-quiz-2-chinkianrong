@@ -6,4 +6,12 @@ import React from "react";
  *
  * TODO: implement the Habit component here
  */
-export default function Habit() {}
+export default function Habit({ habit, onDeleteHabit, onToggleHabit }) {
+    return (
+        <li>
+            <input type="checkbox" value={habit.completed} onChange={() => onToggleHabit(habit.id)} />
+            <span style={habit.completed ? "Completed" : ""} />
+            <button onClick={() => onDeleteHabit(habit.id)}>Delete</button>
+        </li>
+    )
+}
